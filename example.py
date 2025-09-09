@@ -1,7 +1,5 @@
-
-
-from array import array
+import numpy as np
 from fastops import sum_of_squares
 
-arr = array("d", [1.0, 2.0, 3.0])
-print("sum_of_squares:", sum_of_squares(arr))
+arr = np.array([1.0, 2.0, 3.0], dtype=np.float64)
+print("sum_of_squares:", sum_of_squares(arr))  # prints 14.0

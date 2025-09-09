@@ -1,0 +1,78 @@
+# ----------------------------
+# Python
+# ----------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+.env/
+venv/
+ENV/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# ----------------------------
+# Cython / compiled extensions
+# ----------------------------
+*.c
+*.cpp
+*.pyd
+*.so
+*.dll
+*.dylib
+
+# ----------------------------
+# IDE / editor
+# ----------------------------
+.vscode/
+.vscode-test/
+.idea/
+*.swp
+*.swo
+
+# ----------------------------
+# Dev Containers / Docker
+# ----------------------------
+.devcontainer/.venv
+.devcontainer/.pytest_cache
+.devcontainer/.mypy_cache
+
+# VS Code Remote Containers volumes/cache
+**/.devcontainer/devcontainer.json.backup
+.vscode-server/
+.vscode-remote/
+
+# ----------------------------
+# OS
+# ----------------------------
+.DS_Store
+Thumbs.db

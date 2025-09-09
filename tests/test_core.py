@@ -1,15 +1,11 @@
-from array import array
+import numpy as np
 from fastops import sum_of_squares
 
-def test_sum_of_squares_list():
-    data = [1.0, 2.0, 3.0]
-    # převést na array('d') = double precision
-    arr = array("d", data)
-    result = sum_of_squares(arr)
-    assert result == 1.0 + 4.0 + 9.0
+def test_sum_of_squares_numpy():
+    x = np.array([1.0, 2.0, 3.0], dtype=np.float64, order="C")
+    assert sum_of_squares(x) == 14.0
 
-def test_sum_of_squares_memoryview():
-    arr = array("d", [0.5, 1.5, 2.5])
-    mv = memoryview(arr)
-    result = sum_of_squares(mv)
-    assert abs(result - (0.25 + 2.25 + 6.25)) < 1e-12
+def test_noncontiguous_is_handled():
+    x = np.arange(6, dtype=np.float64).reshape(2, 3)[:, 1]  # non-contiguous view
+    # Your function either copies to contiguous or raises; adapt the expected behavior:
+    assert sum_of_squares(x) == np.square(x).sum()
