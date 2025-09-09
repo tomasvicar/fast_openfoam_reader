@@ -24,7 +24,6 @@ classifiers = [
   "Operating System :: OS Independent",
   "Programming Language :: Python :: Implementation :: CPython"
 ]
-dependencies = ["numpy>=1.22"] 
 
 [project.urls]
 Homepage = "https://example.com/fastops"

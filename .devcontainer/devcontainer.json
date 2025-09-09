@@ -8,12 +8,19 @@
       "USER_UID": "1000",
       "USER_GID": "1000",
       "USERNAME": "vscode",
-      "INSTALL_NUMPY": 1
+      "INSTALL_NUMPY": 0
     }
   },
+
   "remoteUser": "vscode",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind,consistency=cached",
+
+  "mounts": [
+    "source=${localWorkspaceFolder}/../data,target=/data,type=bind",
+    // "type=volume,source=vscode-pip-cache,target=/home/vscode/.cache/pip"  // Volitelný pip cache volume, zrychlejší instalace balíčků
+  ],
+
 
   "features": {
     // (Volitelně) oficiální Dev Containers Python feature; možno vynechat, už máme Python v Dockerfile
@@ -51,10 +58,6 @@
   // Proběhne jednou po vytvoření kontejneru
   // "postCreateCommand": "bash .devcontainer/setup.sh",
 
-  // Volitelně mount pro pip cache sdílený s hostem (zrychlí reinstalace)
-  "mounts": [
-    "type=volume,source=vscode-pip-cache,target=/home/vscode/.cache/pip"
-  ],
 
   "runArgs": [
     // Užitečné, pokud potřebujete přístup k host networking (např. lokální PyPI mirror)

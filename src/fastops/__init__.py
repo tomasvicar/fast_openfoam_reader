@@ -1,4 +1,5 @@
-from .core import sum_of_squares
+from .core import read_int_groups_from_file, read_int_groups_from_text
 
-__all__ = ["sum_of_squares"]
+__all__ = [ "read_int_groups_from_file", "read_int_groups_from_text"]
+
 __version__ = "0.1.0"
