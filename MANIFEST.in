@@ -1,2 +1,2 @@
 include README.md
-recursive-include src/fastops *.pyx *.pxd
+recursive-include src/fastofreader *.pyx *.pxd
