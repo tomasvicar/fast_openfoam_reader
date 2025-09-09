@@ -1,23 +1,31 @@
-from __future__ import annotations
-from pathlib import Path
-from setuptools import setup
+from setuptools import setup, Extension
+from Cython.Build import cythonize
+import os
 
-try:
-    from Cython.Build import cythonize
-except ImportError:  # pragma: no cover
-    raise RuntimeError("Cython must be installed (build-system.requires) before building this package")
+CFLAGS = os.environ.get("FASTOPS_CFLAGS", "").split()
+LDFLAGS = os.environ.get("FASTOPS_LDFLAGS", "").split()
 
-SRC_DIR = Path(__file__).parent / "src" / "fast_openfoam_reader"
+extensions = [
+    Extension(
+        name="fastops.core",
+        sources=["src/fastops/core.pyx"],
+        extra_compile_args=CFLAGS,
+        extra_link_args=LDFLAGS,
+    )
+]
 
-extensions = cythonize(
-    [str(SRC_DIR / "fastmath.pyx")],
-    compiler_directives={
-        "language_level": "3",
-        "boundscheck": False,
-        "wraparound": False,
-        "cdivision": True,
-        "initializedcheck": False,
-    },
+setup(
+    ext_modules=cythonize(
+        extensions,
+        compiler_directives={
+            "language_level": "3",
+            "boundscheck": False,
+            "wraparound": False,
+            "initializedcheck": False,
+            "nonecheck": False,
+            "cdivision": True,
+            "embedsignature": True,
+            "infer_types": True,
+        },
+    ),
 )
-
-setup(ext_modules=extensions)

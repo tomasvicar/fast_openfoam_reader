@@ -1,27 +1,32 @@
 [build-system]
-requires = ["setuptools>=65", "wheel", "cython>=3.0"]
+requires = [
+  "setuptools>=69",
+  "wheel",
+  "Cython>=3.0",
+]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "fast-openfoam-reader"
+name = "fastops"
 version = "0.1.0"
-description = "Fast OpenFOAM reader accelerated with Cython"
-authors = [ { name = "Your Name", email = "you@example.com" } ]
+description = "Fast numerical operations implemented in Cython"
 readme = "README.md"
-license = { text = "MIT" }
-requires-python = ">=3.9"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [{ name = "Your Name", email = "you@example.com" }]
+keywords = ["cython", "numerics", "performance"]
 classifiers = [
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Cython",
   "License :: OSI Approved :: MIT License",
-  "Operating System :: OS Independent"
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: Implementation :: CPython"
 ]
-dependencies = []
 
-[project.optional-dependencies]
-dev = ["pytest", "mypy", "ruff", "cython>=3.0", "build", "twine"]
+[project.urls]
+Homepage = "https://example.com/fastops"
+Issues = "https://example.com/fastops/issues"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
@@ -29,20 +34,5 @@ package-dir = {"" = "src"}
 [tool.setuptools.packages.find]
 where = ["src"]
 
-[tool.cythonize]
-# Extra cythonize options can be added here later
-
-[tool.ruff]
-line-length = 100
-select = ["E", "F", "I", "C90"]
-
-[tool.pytest.ini_options]
-minversion = "7.0"
-addopts = "-ra -q"
-pythonpath = ["src"]
-
-[tool.mypy]
-python_version = "3.11"
-warn_unused_configs = true
-ignore_missing_imports = true
-strict = true
+[tool.setuptools.package-data]
+fastops = ["*.pyx", "*.pxd"]
