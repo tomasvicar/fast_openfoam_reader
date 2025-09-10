@@ -8,7 +8,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fastofreader"
-version = "0.1.0"
+version = "0.2.0"
 description = "Fast numerical operations implemented in Cython"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -25,8 +25,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://example.com/fastops"
-Issues = "https://example.com/fastops/issues"
+Homepage = "https://example.com/fastofreader"
+Issues = "https://example.com/fastofreader/issues"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
@@ -35,4 +35,4 @@ package-dir = {"" = "src"}
 where = ["src"]
 
 [tool.setuptools.package-data]
-fastofreader = ["*.pyx", "*.pxd"]
+fastofreader = ["*.pyx", "*.pxd", "__init__.pyi", "py.typed"]
